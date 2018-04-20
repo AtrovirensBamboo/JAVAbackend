@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.dao.SpittleMapper">
+
+    <select id="query" resultType="Spittle">
+        SELECT * FROM Spittle WHERE id &lt;= ${param1} AND id &lt;= ${param2}
+    </select>
+
+    <insert id="insertSpitter" parameterType="Spitter">
+        INSERT INTO Spitter (firstName, lastName, username, password)
+        VALUES (#{firstName},#{lastName},#{username},#{password})
+    </insert>
+
+    <select id="querySpitter" resultType="Spitter">
+        SELECT * FROM Spitter WHERE username = #{param1}
+    </select>
+
+</mapper>
