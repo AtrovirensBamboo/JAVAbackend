@@ -6,23 +6,25 @@ import javax.validation.constraints.Size;
 public class Spitter {
     @javax.validation.constraints.NotNull(message = "firstName不能为空")
     @Size(max=10,message = "firstName长度必须小于10")
-    @Pattern(regexp="[a-z,A-Z]",message = "firstName只允许大小写字母")
+    @Pattern(regexp="[a-zA-Z]+",message = "firstName只允许大小写字母")
     private String firstName;
 
     @javax.validation.constraints.NotNull(message = "lastName不能为空")
     @Size(max=10,message = "lastName长度必须小于10")
-    @Pattern(regexp="[a-z,A-Z]",message = "lastName只允许大小写字母")
+    @Pattern(regexp="[a-zA-Z]+",message = "lastName只允许大小写字母")
     private String lastName;
 
     @javax.validation.constraints.NotNull(message = "username不能为空")
     @Size(min=5,max=15,message = "username长度必须大于5小于15")
-    @Pattern(regexp="[a-z,A-Z,0-9,_]",message = "username只允许大小写字母,数字,下划线")
+    @Pattern(regexp="[a-zA-Z0-9_]+",message = "username只允许大小写字母,数字,下划线")
     private String username;
 
     @javax.validation.constraints.NotNull(message = "password不能为空")
     @Size(min=5,max=15,message = "password长度必须大于5小于10")
-    @Pattern(regexp="\\S",message = "password允许所有非空字符")
+    @Pattern(regexp="\\S+",message = "password允许所有非空字符")
     private String password;
+
+    private String picturePath;
 
     public void setFirstName(String fistName) {
         this.firstName = fistName;
@@ -55,5 +57,14 @@ public class Spitter {
 
     public String getPassword() {
         return password;
+    }
+
+    public void setPicturePath(String picturePath) {
+        this.picturePath = picturePath;
+    }
+
+    public String getPicturePath() {
+
+        return picturePath;
     }
 }

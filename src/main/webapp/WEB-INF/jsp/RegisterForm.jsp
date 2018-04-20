@@ -15,7 +15,7 @@
 </head>
 <body>
 
-<form action="processRegistraction" method="post">
+<form action="processRegistraction" method="post" enctype="multipart/form-data">
     <!-- 登陆验证后如果表单内容不符合要求则说明错误 -->
     <c:if test="${errors.firstName ne null}">
         <c:forEach var="value" items="${errors.firstName}">
@@ -50,6 +50,9 @@
         </c:forEach>
     </c:if>
     Password:<input type="password" name="password"/>
+    <br />
+    <!-- 上传图片文件 -->
+    <input type="file" name="picture" accept="image/jpeg,imge/png,imge/gif">
     <br />
     <input type="submit" value="Register">
 </form>

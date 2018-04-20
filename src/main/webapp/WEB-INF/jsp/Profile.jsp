@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: 89288
@@ -15,6 +16,11 @@
 <body>
     <h2>Your Profile</h2>
     Username:${spitter.username}<br />
-    Name:${spitter.firstName}  ${spitter.lastName}
+    Name:${spitter.firstName}  ${spitter.lastName}<br />
+    <c:if test="${spitter.picturePath ne 'http://localhost:8080/tmp' and spitter.picturePath ne ''}">
+        Picture:<img src="${spitter.picturePath}" alt="spitter picture"/>
+    </c:if>
+    <br />
+    <a href="/download">Download</a>
 </body>
 </html>

@@ -3,12 +3,13 @@
 <mapper namespace="com.example.dao.SpittleMapper">
 
     <select id="query" resultType="Spittle">
+        <!-- 对mapper接口传参，在SQL语句中使用param1,param2,param3...等代表参数 -->
         SELECT * FROM Spittle WHERE id &lt;= ${param1} AND id &lt;= ${param2}
     </select>
 
     <insert id="insertSpitter" parameterType="Spitter">
-        INSERT INTO Spitter (firstName, lastName, username, password)
-        VALUES (#{firstName},#{lastName},#{username},#{password})
+        INSERT INTO Spitter (firstName, lastName, username, password,picturePath)
+        VALUES (#{firstName},#{lastName},#{username},#{password},#{picturePath})
     </insert>
 
     <select id="querySpitter" resultType="Spitter">
